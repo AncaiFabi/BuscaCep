@@ -4,7 +4,7 @@ import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
     selector: 'app-home',
-    templateUrl: 'home-page.html',
+    templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss'],
 })
 export class HomePage {
@@ -15,7 +15,7 @@ export class HomePage {
     private cep: MeucepService
     ) {}
 
-    searchCEP(evento){
+    searchCEP(evento :any){
       const cepDig = evento.detail.value;
     }
 
