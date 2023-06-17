@@ -11,6 +11,9 @@
             expand="block"
             style="color: #222"
             placeholder="00000-000"
+            (ionChange)="searchCEP($event)"
+            maxlenght="8"
+            [(ngModel)]="endereco.cep"
           ></ion-input>
         </ion-item>
       </ion-col>
@@ -26,7 +29,8 @@
             type="text"
             expand="block"
             style="color: #222"
-            placeholder="(00) 00000-0000"
+            placeholder="Numero"
+            [(ngModel)]="endereco.numero"
           ></ion-input>
         </ion-item>
       </ion-col>
@@ -36,13 +40,14 @@
       <ion-col>
         <ion-item class="roundeInput" line="none">
           <ion-label position="floating"
-            >Complemento<span style="color: red"></span
+            >Complemento <span style="color: red"></span
           ></ion-label>
           <ion-input
             type="text"
             expand="block"
             style="color: #222"
             placeholder="Casa, Apartamento"
+            [(ngModel)]="endereco.complemento"
           ></ion-input>
         </ion-item>
       </ion-col>
@@ -58,7 +63,8 @@
             type="text"
             expand="block"
             style="color: #222"
-            placeholder="Av. Rio Madeira - 333"
+            placeholder="Av. Rio Madeira "
+            [(ngModel)]="endereco.endereco"
           ></ion-input>
         </ion-item>
       </ion-col>
@@ -75,6 +81,7 @@
             expand="block"
             style="color: #222"
             placeholder="Bairro"
+            [(ngModel)]="endereco.bairro"
           ></ion-input>
         </ion-item>
       </ion-col>
@@ -91,6 +98,7 @@
             expand="block"
             style="color: #222"
             placeholder="Cidade"
+            [(ngModel)]="endereco.estado"
           ></ion-input>
         </ion-item>
       </ion-col>
@@ -107,6 +115,7 @@
             expand="block"
             style="color: #222"
             placeholder="Estado"
+            [(ngModel)]="endereco.cidade"
           ></ion-input>
         </ion-item>
       </ion-col>
@@ -117,7 +126,9 @@
 <ion-footer>
   <ion-row>
     <ion-col class="espaco">
-      <ion-button shape="block" color="secondary">Cadastrar</ion-button>
+      <ion-button shape="block" color="secondary" (click)="cadastrar()"
+        >Cadastrar</ion-button
+      >
     </ion-col>
   </ion-row>
 </ion-footer>
