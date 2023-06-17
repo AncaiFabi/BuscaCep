@@ -7,9 +7,15 @@ import {
 } from '@ionic/angular';
 
 @Component({
+<<<<<<< HEAD
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+=======
+    selector: 'app-home',
+    templateUrl: 'home.page.html',
+    styleUrls: ['home.page.scss'],
+>>>>>>> 3f02eda0dc4e374b5aa6f8e1a04a4f40a9eed61b
 })
 export class HomePage {
   dados: any = {};
@@ -29,6 +35,7 @@ export class HomePage {
     private cep: MeucepService
   ) {}
 
+<<<<<<< HEAD
   searchCEP(evento: any) {
     const cepDig = evento.detail.value;
 
@@ -50,6 +57,10 @@ export class HomePage {
         .catch(() => {
           this.exibeToast('CEP não encontrado', 'warning');
         });
+=======
+    searchCEP(evento :any){
+      const cepDig = evento.detail.value;
+>>>>>>> 3f02eda0dc4e374b5aa6f8e1a04a4f40a9eed61b
     }
   }
 
