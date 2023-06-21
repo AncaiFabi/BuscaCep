@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
+import { EnderecosService } from '../services/enderecos.service';
 
 @Component({
   selector: 'app-conclusao',
@@ -16,8 +17,12 @@ export class ConclusaoPage implements OnInit {
     cidade: '',
     estado: '',
   };
-
-  constructor(public alerta: AlertController, public nav: NavController) {}
+  public enderecos: any[] = [];
+  constructor(
+    public alerta: AlertController,
+    public nav: NavController,
+    public servicos: EnderecosService
+  ) {}
 
   ngOnInit() {}
 
@@ -28,14 +33,14 @@ export class ConclusaoPage implements OnInit {
   async voltar() {
     const voltando = await this.alerta.create({
       header: 'ATENÇÃO!',
-      message: 'Deseja retornar? perderá todos os dados!',
+      message: 'Deseja adicionar um novo endereço?!',
       buttons: [
         {
           text: 'Não',
           role: 'cancel',
         },
         {
-          text: 'Retornar',
+          text: 'Sim',
           handler: () => {
             localStorage.clear();
             this.nav.navigateBack('/');
@@ -47,13 +52,13 @@ export class ConclusaoPage implements OnInit {
     await voltando.present();
   }
 
+  editar() {
+    this.nav.navigateRoot('/');
+  }
+
   carregaDados() {
-    this.endereco.endereco = localStorage.getItem('endereco')!;
-    this.endereco.numero = localStorage.getItem('numero')!;
-    this.endereco.complemento = localStorage.getItem('com')!;
-    this.endereco.bairro = localStorage.getItem('bairro')!;
-    this.endereco.cep = localStorage.getItem('cep')!;
-    this.endereco.cidade = localStorage.getItem('cidade')!;
-    this.endereco.estado = localStorage.getItem('estado')!;
+    if(this.servicos.listar()){
+      this.enderecos = this.servicos.listar()!;
+    }
   }
 }
