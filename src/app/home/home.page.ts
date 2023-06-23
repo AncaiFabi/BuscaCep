@@ -76,8 +76,6 @@ export class HomePage {
   }
 
   salvamento() {
-    //  const copia = JSON.parse(JSON.stringify())
-    // this.enderecos.push(this.endereco);
     this.servico.salvarEndereco(
       this.endereco.endereco,
       this.endereco.numero,
@@ -87,8 +85,6 @@ export class HomePage {
       this.endereco.cidade,
       this.endereco.estado
     );
-
-    this.nav.navigateRoot('conclusao');
   }
 
   limpaDados() {
